@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 import os
 from pathlib import Path
 
+#MY SQL DATABASE
 import pymysql
 # (major, minor, micro, releaselevel, serial)
 pymysql.version_info = (1, 4, 6, 'final', 0)
@@ -45,6 +46,7 @@ INSTALLED_APPS = [
     'usuarios',
     'dashboard',
     'ventas',
+    'control',
 ]
 
 MIDDLEWARE = [
@@ -86,7 +88,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'store',
         'USER': 'admin',
-        'PASSWORD': '',
+        'PASSWORD': 'Dreams369',
         'HOST': 'ecommerce.cko1o6felpe9.us-east-2.rds.amazonaws.com',
         'PORT': 3306
 
@@ -130,10 +132,12 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-# STATCS
+# STATCS IN THIS PROJECT
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+# STATCS IN AWS
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

@@ -2,10 +2,10 @@
 
 	{% block content %}
 
-<br><br><br> 
-<h1>Login</h1>
+	<br><br><br> 
+	<h1>Add Address</h1>
 
-<form action="../login/" method="POST">
+<form action="/usuarios/addAddress/" method="POST">
   {% csrf_token %} {{form.as_p}}
   <button type="submit">Login</button>
 </form>

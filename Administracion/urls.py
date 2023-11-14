@@ -24,7 +24,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('usuarios/', include('usuarios.urls')),
     path('', include('dashboard.urls')),
-    path('ventas/', include('usuarios.urls'))
+    path('ventas/', include('ventas.urls')),
+    path('control/', include('control.urls'))
 ]
 
 # STATCS

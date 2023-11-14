@@ -1,14 +1,15 @@
-{% extends 'base.html' %}
+	{% extends 'templateStore.html' %}
 
-{% block content %}
+	{% block content %}
 
-<h1>Singup</h1>
+  <br><br><br> 
+  <h1>Signup</h1>
 
-<form action="../signup/" method="POST">
-  {% csrf_token %} {{form.as_p}}
-  <button type="submit">Sing Up</button>
-</form>
+  <form action="../signup/" method="POST">
+    {% csrf_token %} {{form.as_p}}
+    <button type="submit">Sing Up</button>
+  </form>
 
-{{error}}
+  {{error}}
 
-{% endblock %}
+	{% endblock %}

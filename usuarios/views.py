@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.db import IntegrityError
+from .forms import Add_Address
 
 # Create your views here.
 
@@ -49,5 +50,27 @@ def signin(request):
 def singout(request):
     logout(request)
     return redirect('home')
+
+
+def addAddress(request):
+    if request.method == 'GET':
+        return render(request, 'addAddress.html', {
+            'form': Add_Address
+            })
+    else:
+        try:
+            form = Add_Address(request.POST)
+            new_address = form.save(commit=False)
+            new_address.id_user = request.user
+            new_address.save()
+            return redirect('address')
+        except ValueError:
+            return render(request, 'addAddress.html', {
+                'form': Add_Address,
+                'error': 'Please provide valid data'
+            })
+
+def address(request):
+    return render(request, 'myAddress.html')
 
 
